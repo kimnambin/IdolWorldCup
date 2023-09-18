@@ -1,67 +1,90 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script type="text/javascript" src="../js/popup.js" defer></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<body onload="popup();">
+<body>
 
-  <div class="container mt-4">
-    <div class="row">
-      <div class="col">
-        <!-- 맨 위 텍스트 -->
-        <p class="text-center">16강 (8-1)</p>
-      </div>
-    </div>
-      
-      <div class="row">
-      <div class="col-6">
-        <!-- 왼쪽 이미지 -->
-        <img src="" alt="1번" class="img-fluid" id="leftImage">
-      </div>
-      <div class="col-6">
-        <!-- 오른쪽 이미지 -->
-        <img src="" alt="2번" class="img-fluid" id="rightImage">
-      </div>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <!-- 초기 텍스트 -->
+      <p class="text-center" id="roundText">16강 (8-1)</p>
     </div>
   </div>
-    
-    <div class="row">
-      <div class="col-6">
-        <!-- 왼쪽 버튼 -->
-        <button class="btn btn-primary btn-block">1번</button>
-      </div>
-      <div class="col-6">
-        <!-- 오른쪽 버튼 -->
-        <button class="btn btn-primary btn-block">2번</button>
-      </div>
+  
+  <div class="row">
+    <div class="col-6">
+      <!-- 왼쪽 이미지 -->
+      <img src="" alt="1번" class="img-fluid" id="leftImage">
     </div>
-    
+    <div class="col-6">
+      <!-- 오른쪽 이미지 -->
+      <img src="" alt="2번" class="img-fluid" id="rightImage">
+    </div>
+  </div>
 
-  <!-- 부트스트랩 스크립트 추가 -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <div class="row">
+    <div class="col-6">
+      <!-- 왼쪽 버튼 -->
+      <button class="btn btn-primary btn-block" onclick="changeImages('leftImage', 'rightImage')">1번</button>
+    </div>
+    <div class="col-6">
+      <!-- 오른쪽 버튼 -->
+      <button class="btn btn-primary btn-block" onclick="changeImages('rightImage', 'leftImage')">2번</button>
+    </div>
+  </div>
+</div>
 
-  <script>
-    // 이미지 파일 이름 배열
-    const imageNames = ["img/mm01.jpg", "img/mm02.jpg", "img/mm03.jpg", 
-                        "img/mm04.jpg", "img/mm05.jpg", "img/mm06.jpg",
-                        "img/mm07.jpg", "img/mm08.jpg", "img/mm09.jpg",
-                        "img/mm10.jpg", "img/mm11.jpg", "img/mm12.jpg",
-                        "img/mm13.jpg", "img/mm14.jpg", "img/mm15.jpg",
-                        "img/mm16.jpg"]
+<!-- 부트스트랩 스크립트 추가 -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    // 이미지 랜덤으로 선택
-    function getRandomImage() {
-      const randomIndex = Math.floor(Math.random() * imageNames.length);
-      return imageNames[randomIndex];
+<script>
+  const imageNames = [
+     "img/mm01.jpg", "img/mm02.jpg", "img/mm03.jpg", 
+    "img/mm04.jpg", "img/mm05.jpg", "img/mm06.jpg",
+    "img/mm07.jpg", "img/mm08.jpg", "img/mm09.jpg", 
+    "img/mm10.jpg", "img/mm11.jpg", "img/mm12.jpg",
+    "img/mm13.jpg", "img/mm14.jpg","img/mm15.jpg" , "img/mm16.jpg"
+  ];
+
+  let roundNumber = 1;
+  let usedImages = [];
+
+  function getRandomImage() {
+    if (usedImages.length === imageNames.length) {
+      usedImages = [];
     }
 
-    
-    document.getElementById("leftImage").src = getRandomImage();
-  
-    document.getElementById("rightImage").src = getRandomImage();
-  </script>
+    let randomImage;
+    do {
+      randomImage = imageNames[Math.floor(Math.random() * imageNames.length)];
+    } while (usedImages.includes(randomImage));
+
+    usedImages.push(randomImage);
+    return randomImage;
+  }
+
+  function changeImages(clickedImageId, otherImageId) {
+    if (roundNumber < 8) {
+      document.getElementById("roundText").textContent = `16강 (8-${roundNumber})`;
+      document.getElementById(clickedImageId).src = getRandomImage();
+      document.getElementById(otherImageId).src = getRandomImage();
+      roundNumber++;
+    } else {
+      // 8번까지 다 끝났을 때, 다음 페이지로 이동
+      window.location.href = "m08.html";
+    }
+  }
+
+  // 초기 이미지 설정
+  document.getElementById("leftImage").src = getRandomImage();
+  document.getElementById("rightImage").src = getRandomImage();
+</script>
+
 </body>
 </html>
+
+

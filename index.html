@@ -32,7 +32,7 @@
   <div class="btn-group">
       <p class="highlight-text01">남자 아이돌</p>
  
-   <button class="btn btn-secondary" onclick="location.href='m16.html'">
+   <button class="btn btn-secondary" onclick="openPopup('popup.html')">
       시작하기
     </button>
      <button class="btn btn-secondary" onclick="#">
@@ -41,8 +41,7 @@
   </div>
 </div>
 
-      <style>
- 
+<style>
   .highlight-text01 {
     font-weight: bold; 
     font-size: 24px; 
@@ -51,32 +50,31 @@
 </style>
  
 
-
-
-
-
-
-      
-      <div class="image-container">
+<div class="image-container">
     <img src="img/ww01.jpg" alt="여자 이미지" style="max-width: 15%;">
     <div class="btn-group">  
     <p class="highlight-text02">여자 아이돌</p>
-        <button class="btn btn-secondary" onclick="location.href='w16.html'">
+        <button class="btn btn-secondary" onclick="openPopup('popup02.html')">
       시작하기
     </button>
    <button class="btn btn-secondary" onclick="#">
       랭킹보기
     </button>
-  
+  </div>
 </div>
-      <style>
- .highlight-text02 {
+<style>
+  .highlight-text02 {
     font-weight: bold; 
     font-size: 24px; 
     color: #FF69B4; 
   }
 </style>
   
-    </div>
 </body>
+<script>
+function openPopup(url) {
+  window.open(url, "popup", "width=600,height=400");
+}
+</script>
 </html>
+

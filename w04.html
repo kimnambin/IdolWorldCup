@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+
+<div class="container mt-4">
+  <div class="row">
+    <div class="col">
+      <!-- 초기 텍스트 -->
+      <p class="text-center" id="roundText">4강 (2-1)</p>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="col-6">
+      <!-- 왼쪽 이미지 -->
+      <img src="" alt="1번" class="img-fluid" id="leftImage">
+    </div>
+    <div class="col-6">
+      <!-- 오른쪽 이미지 -->
+      <img src="" alt="2번" class="img-fluid" id="rightImage">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <!-- 왼쪽 버튼 -->
+      <button class="btn btn-primary btn-block" onclick="changeImages('leftImage', 'rightImage')">1번</button>
+    </div>
+    <div class="col-6">
+      <!-- 오른쪽 버튼 -->
+      <button class="btn btn-primary btn-block" onclick="changeImages('rightImage', 'leftImage')">2번</button>
+    </div>
+  </div>
+</div>
+
+<!-- 부트스트랩 스크립트 추가 -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  const imageNames = [
+    "img/w01.jpg", "img/w02.jpg", "img/w03.jpg", 
+    "img/w04.jpg", "img/w05.jpg", "img/w06.jpg",
+    "img/w07.jpg", "img/w08.jpg", "img/w09.jpg",
+    "img/w10.jpg", "img/w11.jpg", "img/w12.jpg",
+    "img/w13.jpg", "img/w14.jpg", "img/w15.jpg",
+    "img/w16.jpg"
+  ];
+
+  let roundNumber = 1;
+  let selectedImages = [null, null];
+
+  function getRandomImage() {
+    return imageNames[Math.floor(Math.random() * imageNames.length)];
+  }
+
+  function changeImages(clickedImageId, otherImageId) {
+    if (roundNumber < 2) {
+      document.getElementById("roundText").textContent = `4강 (2-${roundNumber})`;
+      const selectedImage = getRandomImage();
+      selectedImages[roundNumber - 1] = selectedImage;
+      document.getElementById(clickedImageId).src = selectedImage;
+      document.getElementById(otherImageId).src = getRandomImage();
+      roundNumber++;
+    } else {
+      // 선택한 이미지를 보여주고 텍스트를 "결승전"으로 변경
+      document.getElementById("leftImage").src = selectedImages[0];
+      document.getElementById("rightImage").src = selectedImages[1];
+      document.getElementById("roundText").textContent = "결승전";
+    }
+  }
+
+  document.getElementById("leftImage").src = getRandomImage();
+  document.getElementById("rightImage").src = getRandomImage();
+</script>
+
+</body>
+</html>
+
