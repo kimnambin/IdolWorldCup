@@ -9,7 +9,7 @@
   <div class="row">
     <div class="col">
       <!-- 초기 텍스트 -->
-      <p class="text-center" id="roundText">4강 (2-1)</p>
+      <p class="text-center" id="roundText">4강 2-1</p>
     </div>
   </div>
   
@@ -26,12 +26,12 @@
 
   <div class="row">
     <div class="col-6">
-      <!-- 왼쪽 버튼 -->
-      <button class="btn btn-primary btn-block" onclick="changeImages('leftImage', 'rightImage', '4강 (2-2)')">1번</button>
+      <!-- 1번 선택 버튼 -->
+      <button class="btn btn-primary btn-block" onclick="changeImages('leftImage', 'rightImage', '1번')">1번</button>
     </div>
     <div class="col-6">
-      <!-- 오른쪽 버튼 -->
-      <button class="btn btn-primary btn-block" onclick="changeImages('rightImage', 'leftImage', '결승전')">2번</button>
+      <!-- 2번 선택 버튼 -->
+      <button class="btn btn-primary btn-block" onclick="changeImages('rightImage', 'leftImage', '2번')">2번</button>
     </div>
   </div>
 </div>
@@ -51,30 +51,39 @@
     "img/w16.jpg"
   ];
 
-  let roundNumber = 1; // 초기 라운드 번호 (4강 2-1)
-  let selectedImages = [null, null]; // 선택한 이미지 저장
+  let roundNumber = 1;
+  let selectedImages = []; // 선택한 이미지 저장 배열
 
   function getRandomImage() {
-    return imageNames[Math.floor(Math.random() * imageNames.length)];
+    const randomIndex = Math.floor(Math.random() * imageNames.length);
+    return imageNames[randomIndex];
   }
 
   function changeImages(clickedImageId, otherImageId, nextRoundText) {
     if (roundNumber === 1) {
+      // 4강 2-1에서 선택한 이미지를 저장
       const selectedImage = getRandomImage();
       document.getElementById(clickedImageId).src = selectedImage;
-      document.getElementById(otherImageId).src = getRandomImage();
-      selectedImages[0] = selectedImage; // 선택한 이미지를 selectedImages[0]에 저장
+      selectedImages.push(selectedImage);
+
+      // 다음 라운드로 진행
+      document.getElementById("roundText").textContent = "4강 2-2";
       roundNumber++;
-      document.getElementById("roundText").textContent = nextRoundText;
     } else if (roundNumber === 2) {
+      // 4강 2-2에서 선택한 이미지를 저장
       const selectedImage = getRandomImage();
       document.getElementById(clickedImageId).src = selectedImage;
-      document.getElementById(otherImageId).src = getRandomImage();
-      selectedImages[1] = selectedImage; // 선택한 이미지를 selectedImages[1]에 저장
+      selectedImages.push(selectedImage);
+
+      // 결승전 라운드로 진행
+      document.getElementById("roundText").textContent = "결승전";
       roundNumber++;
-      document.getElementById("roundText").textContent = nextRoundText;
-      document.getElementById("leftImage").src = selectedImages[0]; // 첫 번째 이미지를 왼쪽 이미지로 설정
-      document.getElementById("rightImage").src = selectedImages[1]; // 두 번째 이미지를 오른쪽 이미지로 설정
+    } else if (roundNumber === 3) {
+      // 결승전 라운드에서 선택한 이미지 표시
+      document.getElementById("leftImage").src = selectedImages[0];
+      document.getElementById("rightImage").src = selectedImages[1];
+
+      
     }
   }
 
@@ -82,9 +91,19 @@
   document.getElementById("leftImage").src = getRandomImage();
   document.getElementById("rightImage").src = getRandomImage();
 </script>
-
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
 
 
 
