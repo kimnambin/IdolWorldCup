@@ -1,5 +1,15 @@
-# 블로그 만들기
-jsp와 mysql을 이용한 블로그 페이지
+# 이상형 월드컵 
+자바스크립트를 이용한 이상형 월드컵 <br>
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://github.com/kimnambin/IdolWorldCup/assets/127464935/8d9d9b63-7933-4e67-9686-16ce04108a0e" width="300"> 메인 화면
+    <img src="https://github.com/kimnambin/IdolWorldCup/assets/127464935/3bbd9d8a-883c-46e5-b677-712662e3b973" width="300"> 라운드 선택 
+     <img src="https://github.com/kimnambin/IdolWorldCup/assets/127464935/fef409ef-5e4c-4eb3-9d57-b8a41333ff76" width="300"> 라운드 진행
+    <img src="https://github.com/kimnambin/IdolWorldCup/assets/127464935/9b915f67-a36b-4f67-b46f-4fb4bbf99a6d" width="300"> 우승자
+   <img src="https://github.com/kimnambin/IdolWorldCup/assets/127464935/fdc0ad98-2d2a-4416-83cc-a771230aac2e" width="300"> 랭킹
+</div>
+
+
+
 
 
 ## 🖥️ 프로젝트 소개
