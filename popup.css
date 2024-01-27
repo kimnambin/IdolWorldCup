@@ -1,0 +1,26 @@
+.card {
+
+width: 470px;
+height: 380px;
+border: 1px solid #ccc;
+text-align: center;
+}
+
+.btn{
+width: 450px;
+height: 30px;
+transition: all 0.3s ease-in-out;
+background-color: rgba(125, 58, 210, 0.15);
+border-radius: 10px;
+
+}
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.dropdown{
+    width: 380px;
+    height: 30px;
+    border-radius: 10px;
+}
+

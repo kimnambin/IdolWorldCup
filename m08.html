@@ -3,24 +3,26 @@
 <head>
   <title>남자 아이돌 8강</title>
   <meta charset="utf-8">
-  <style>
-    img {
-      width: 500px;
-      height: 500px;
-      cursor: pointer;
-    }
-  </style>
+  <link rel = "stylesheet" href="round.css">
 </head>
 <body>
-  <center>
-    <h1>남자 아이돌 8강</h1>
+  <div style="text-align: center;">
+    <div class="title-container">
+      <h1><span>남자 아이돌 8강</span></h1>
     <p id="round"></p>
     <p id="cal"></p>
+    </div>
     <!-- 이미지 클릭 시 효과음 재생 -->
     <img id="image1" onclick="change(0); play()">
     <img id="image2" onclick="change(1); play()">
     <audio id='audio_play' preload="auto" src='audio/00.mp3'></audio> 
-  </center>
+
+    <!--우승자 보여줄 때-->
+    <div class="winner-container" id="winnerContainer">
+      <p class="winner-text">👑당신의 이상형👑</p>
+      <img id="winnerImage">
+    </div>
+</div>
 
   <script>
     var text = "";
@@ -96,8 +98,9 @@
           if (roundIndex === rounds.length - 1) {
             // 우승자가 결정됨
             winnerImage = sImages[0];
-            document.getElementById('cal').innerHTML = "당신의 이상형";
-            document.getElementById('cal').innerHTML = "<img src='" + winnerImage + "'>";
+            document.getElementById('cal').innerHTML = "";
+            document.getElementById('winnerImage').src = winnerImage;
+            document.getElementById('winnerContainer').style.display = 'block';
             // 이미지 요소를 숨김
             document.getElementById('image1').style.display = 'none';
             document.getElementById('image2').style.display = 'none';
@@ -117,4 +120,3 @@
   </script>
 </body>
 </html>
-

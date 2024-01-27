@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <script type="text/javascript" src="../js/popup.js" defer></script>
+    <link rel ="stylesheet" href="popup.css">
 </head>
 <body onload="popup();">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary text-center">
-        <div class="container-fluid">
-            <img src="img/aa.jpg" alt="" style="max-width: 15%; display: block; margin: 0 auto;">
-           <h1 class="text-center">
-    여자 아이돌 월드컵
-</h1>
-            <i class="bi bi-alarm"></i>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+
+
+    <div class="card">
+        <div class="card text-center">
+          <div class="card-body">
+            <h8 class="card-title" style="background-color: rgba(34, 147, 210, 0.15); font-weight: bold;">👩여자 아이돌</h8><hr>
+            <h6 class="card-subtitle mb-2 text-muted">
+            <img src="img/aa.jpg" style="width: 180px; height: 180px;"></h6>
+           라운드  <select class="dropdown" id="round">
+                <option value="w16.html">16강</option>
+                <option value="w08.html">8강</option>
+                <option value="w04.html">4강</option>
+                <option value="w02.html">결승</option>
+            </select>
+            <br><br>
+              <button class="btn" onclick="checkround()" style="background-color: #0F9DF7; color: white;" >
+              시작
             </button>
-            <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item dropdown">
-                        총 라운드를 선택하세요
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="w16.html" target="_blank">16강</a></li>
-                            <li><a class="dropdown-item" href="w08.html" target="_blank">8강</a></li>
-                            <li><a class="dropdown-item" href="w04.html" target="_blank">4강</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+          </div>
+      </div>
 </body>
+
+<script>
+    //드롭다운에서 선택한 라운드로 이동
+    function checkround(){ //버튼 원클릭
+        //드롭다운에서  선택한 것 -> selectedValue : round
+        var selectedValue = document.getElementById("round").value;
+        window.open(selectedValue, "_blank");
+}
+    </script>
+
 </html>
+
+
+
