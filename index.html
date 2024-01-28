@@ -2,7 +2,7 @@
 <html>
 <head>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
-  <link rel = "stylesheet" href="main.css">
+  <link rel = "stylesheet" href="css/main.css">
 </head>
 <body>
   
@@ -27,9 +27,10 @@
               <button class="btn" onclick="openPopup('popup02.html')">
               시작
             </button>
-             <button class="btn" onclick="">
+            <button class="btn" onclick="location.href='women/womrank.html';">
               랭킹
             </button>
+            
           </div>
           </div>
         </div>
@@ -46,8 +47,11 @@
               <button class="btn" onclick="openPopup('popup.html')" style="background-color: rgba(34, 147, 210, 0.15);">
               시작
             </button>
-             <button class="btn" onclick="" style="background-color: rgba(34, 147, 210, 0.15);">
-              랭킹
+             
+              <button class="btn" onclick="location.href='man/manrank.html';" style="background-color: rgba(34, 147, 210, 0.15);">
+                랭킹
+              </button>
+              
             </button>
           </div>
         </div>
@@ -59,7 +63,7 @@
 </body>
 <script>
 function openPopup(url) {
-  window.open(url, "popup", "width=470,height=380");
+  window.open(url, "popup", "width=520,height=420");
 }
 </script>
 </html>

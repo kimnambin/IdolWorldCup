@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>남자 아이돌 4강</title>
-  <link rel = "stylesheet" href="round.css">
+  <title>남자 아이돌 결승</title>
   <meta charset="utf-8">
-  
+  <link rel = "stylesheet" href="../css/round.css">
 </head>
 <body>
   <div style="text-align: center;">
     <div class="title-container">
-      <h1><span>남자 아이돌 4강</span></h1>
-    <p id="round"></p>
-    <p id="cal"></p>
+      <h1><span>남자 아이돌 결승</span></h1>
+      <p id="round"></p>
+      <p id="cal"></p>
     </div>
 
     <!-- 이미지 클릭 시 효과음 재생 -->
     <img id="image1" onclick="change(0); play()">
     <img id="image2" onclick="change(1); play()">
-    <audio id='audio_play' preload="auto" src='audio/00.mp3'></audio> 
+    <audio id='audio_play' preload="auto" src='../audio/00.mp3'></audio>
 
     <!--우승자 보여줄 때-->
     <div class="winner-container" id="winnerContainer">
@@ -29,34 +28,34 @@
   <script>
     var text = "";
     var images = [];
-    var rounds = ["4강", "결승", "당신의 이상형"]; // 라운드별 이미지 수
+    var rounds = ["결승", "당신의 이상형"]; // 라운드별 이미지 수
     var roundIndex = 0; // 현재 라운드 인덱스
-    var matches = rounds[roundIndex] === "4강" ? 2 : 1; // 현재 라운드의 경기 수
+    var matches = rounds[roundIndex] === "결승" ? 1 : 1; // 현재 라운드의 경기 수
     var currentMatch = 0; // 현재 진행 중인 경기
     var sImages = []; // 선택한 이미지 저장 배열
     var winnerImage = "";
 
-    function play() { 
-      var audio = document.getElementById('audio_play'); 
-      if (audio.paused) { 
-          audio.play(); 
-      } else { 
-          audio.pause(); 
-          audio.currentTime = 0; 
-      } 
+    function play() {
+      var audio = document.getElementById('audio_play');
+      if (audio.paused) {
+        audio.play();
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+      }
     }
 
     // 이미지 파일 이름 배열 생성 (img 폴더 안에 있는 이미지 파일)
     for (var i = 1; i <= 16; i++) {
       // 이미지 파일 이름을 형식에 맞게 생성
-      var fileName = "img/mm" + (i < 10 ? "0" : "") + i + ".jpg";
+      var fileName = "../img/mm" + (i < 10 ? "0" : "") + i + ".jpg";
       images.push(fileName);
     }
 
     // 이미지를 중복되지 않게 랜덤으로 선택
     function getRandomImages() {
       var selectedImages = [];
-      while (selectedImages.length < 4) {
+      while (selectedImages.length < 2) {
         var randomIndex = Math.floor(Math.random() * images.length);
         var selectedImage = images.splice(randomIndex, 1)[0];
         selectedImages.push(selectedImage);
@@ -65,11 +64,11 @@
     }
 
     // 초기 라운드에는 중복되지 않게 랜덤 이미지 사용
-    if (rounds[roundIndex] === "4강") {
+    if (rounds[roundIndex] === "결승") {
       images = getRandomImages();
     }
 
-    images.sort(function(a, b) {
+    images.sort(function (a, b) {
       return 0.5 - Math.random();
     });
 
@@ -79,7 +78,7 @@
       var matchStartIndex = matchIndex * 2;
       document.getElementById('image1').src = images[matchStartIndex];
       document.getElementById('image2').src = images[matchStartIndex + 1];
-      document.getElementById('round').innerHTML =  rounds[roundIndex];
+      document.getElementById('round').innerHTML = rounds[roundIndex];
     }
 
     function change(n) {
@@ -90,16 +89,16 @@
         if (roundIndex < rounds.length - 1) {
           // 다음 라운드로 진행
           roundIndex++;
-          if (rounds[roundIndex] === "4강") {
+          if (rounds[roundIndex] === "결승") {
             // 중복되지 않게 랜덤 이미지 선택
             images = getRandomImages();
           }
-          matches = rounds[roundIndex] === "당신의 이상형" ? 2 : 1;
+          matches = rounds[roundIndex] === "결승" ? 1 : 1;
           currentMatch = 0;
 
           if (roundIndex === rounds.length - 1) {
-             // 우승자가 결정됨
-             winnerImage = sImages[0];
+            // 우승자가 결정됨
+            winnerImage = sImages[0];
             document.getElementById('cal').innerHTML = "";
             document.getElementById('winnerImage').src = winnerImage;
             document.getElementById('winnerContainer').style.display = 'block';
