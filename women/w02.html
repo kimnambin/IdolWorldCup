@@ -8,7 +8,7 @@
 <body>
   <div style="text-align: center;">
     <div class="title-container">
-      <h1><span>여자 아이돌 결승</span></h1>
+      <h1 onclick = "location.href='../index.html';"><span>여자 아이돌 결승</span></h1>
       <p id="round"></p>
       <p id="cal"></p>
     </div>
@@ -22,6 +22,9 @@
     <div class="winner-container" id="winnerContainer">
       <p class="winner-text">👑당신의 이상형👑</p>
       <img id="winnerImage">
+      <br>
+      <button class = "btn" id="btn1" onclick = "location.href='../index.html';">처음으로</button>
+      <button class = "btn" id="btn2" onclick = "location.href='womrank.html';">랭킹보기</button>
     </div>
   </div>
 
@@ -33,7 +36,8 @@
     var matches = rounds[roundIndex] === "결승" ? 1 : 1; // 현재 라운드의 경기 수
     var currentMatch = 0; // 현재 진행 중인 경기
     var sImages = []; // 선택한 이미지 저장 배열
-    var winnerImage = "";
+    var winnerImage = "우승자";
+   
 
     function play() {
       var audio = document.getElementById('audio_play');
@@ -52,23 +56,7 @@
       images.push(fileName);
     }
 
-    // 이미지를 중복되지 않게 랜덤으로 선택
-    function getRandomImages() {
-      var selectedImages = [];
-      while (selectedImages.length < 2) {
-        var randomIndex = Math.floor(Math.random() * images.length);
-        var selectedImage = images.splice(randomIndex, 1)[0];
-        selectedImages.push(selectedImage);
-      }
-      return selectedImages;
-    }
-
-    // 초기 라운드에는 중복되지 않게 랜덤 이미지 사용
-    if (rounds[roundIndex] === "결승") {
-      images = getRandomImages();
-    }
-
-    images.sort(function (a, b) {
+    images.sort(function(a, b) {
       return 0.5 - Math.random();
     });
 
@@ -89,22 +77,22 @@
         if (roundIndex < rounds.length - 1) {
           // 다음 라운드로 진행
           roundIndex++;
-          if (rounds[roundIndex] === "결승") {
-            // 중복되지 않게 랜덤 이미지 선택
-            images = getRandomImages();
-          }
+          
           matches = rounds[roundIndex] === "결승" ? 1 : 1;
           currentMatch = 0;
 
           if (roundIndex === rounds.length - 1) {
             // 우승자가 결정됨
             winnerImage = sImages[0];
+
             document.getElementById('cal').innerHTML = "";
             document.getElementById('winnerImage').src = winnerImage;
             document.getElementById('winnerContainer').style.display = 'block';
             // 이미지 요소를 숨김
             document.getElementById('image1').style.display = 'none';
             document.getElementById('image2').style.display = 'none';
+            ocument.getElementById('btn1').style.display = 'none';
+            document.getElementById('btn2').style.display = 'none';
           } else {
             showImg(currentMatch);
           }
@@ -116,7 +104,6 @@
         showImg(currentMatch);
       }
     }
-
     document.getElementById('cal').innerHTML = text;
   </script>
 </body>
