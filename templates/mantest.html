@@ -1,0 +1,37 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Man Rank</title>
+</head>
+<body>
+    <h1>남자 아이돌 데이터베이스</h1>
+    <ul>
+        {% for manrank in manranks %}
+        <li>{{ manrank.id }} - {{ manrank.name }} - {{ manrank.imageName }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>아이돌 목록</title>
+</head>
+<body>
+    <h1>아이돌 목록</h1>
+    <ul>
+        {% for idol in idols %}
+        <li>
+            <img src="{{ idol.image }}">
+            {{ idol.name }}
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
+

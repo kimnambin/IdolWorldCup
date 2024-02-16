@@ -77,6 +77,9 @@
           if (roundIndex === rounds.length - 1) {
             winnerImage = sImages[0];
 
+             // 로컬 스토리지에 우승자 이미지 저장
+             localStorage.setItem('winnerImage', winnerImage);
+
             document.getElementById('cal').innerHTML = "";
             document.getElementById('winnerImage').src = winnerImage;
             document.getElementById('winnerContainer').style.display = 'block';

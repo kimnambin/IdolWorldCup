@@ -16,80 +16,58 @@
   <div class="card-container">
     
     <!-- 여자 아이돌 카드-->
-      <div class="card">
-        <div class="card text-center" >
-          <div class="card-body">
-            <h5 class="card-title" style="font-weight: bold;">🥇1등🥇</h5><hr>
-            <h6 class="card-subtitle mb-2 text-muted">
-              <img src = "img/ww01.jpg"  style="width: 180px; height: 180px;">
-            </h6>
-           <h5 >여기에 이름</h5>
-           <h5>여기에 픽</h5>
-          </div>
-          </div>
+    <div class="card">
+      <div class="card text-center" >
+        <div class="card-body">
+          <h5 class="card-title" style="font-weight: bold;">당신의🥇1등🥇</h5><hr>
+          <h6 class="card-subtitle mb-2 text-muted">
+            <img src = "" id="winnerImage" style="width: 180px; height: 180px;">
+          </h6>
         </div>
-
-        <div class="card">
-            <div class="card text-center" >
-              <div class="card-body">
-                <h5 class="card-title" style="font-weight: bold;">🥈2등🥈</h5><hr>
-                <h6 class="card-subtitle mb-2 text-muted">
-                  <img src = "img/ww01.jpg"  style="width: 180px; height: 180px;">
-                </h6>
-               <h5>여기에 이름</h5>
-               <h5>여기에 픽</h5>
-              </div>
-              </div>
-            </div>
-
-            <div class="card">
-                <div class="card text-center" >
-                  <div class="card-body">
-                    <h5 class="card-title" style="font-weight: bold;">🥉3등🥉</h5><hr>
-                    <h6 class="card-subtitle mb-2 text-muted">
-                      <img src = "img/ww01.jpg"  style="width: 180px; height: 180px;">
-                    </h6>
-                   <h5>여기에 이름</h5>
-                   <h5>여기에 픽</h5>
-                  </div>
-                  </div>
-                </div>
-
-                <div class="card">
-                    <div class="card text-center" >
-                      <div class="card-body">
-                        <h5 class="card-title" style="font-weight: bold;">4등</h5><hr>
-                        <h6 class="card-subtitle mb-2 text-muted">
-                          <img src = "img/ww01.jpg"  style="width: 180px; height: 180px;">
-                        </h6>
-                       <h5>여기에 이름</h5>
-                       <h5>여기에 픽</h5>
-                      </div>
-                      </div>
-                    </div>
-
-                    <div class="card">
-                        <div class="card text-center" >
-                          <div class="card-body">
-                            <h5 class="card-title" style="font-weight: bold;">5등</h5><hr>
-                            <h6 class="card-subtitle mb-2 text-muted">
-                              <img src = "img/ww01.jpg"  style="width: 180px; height: 180px;">
-                            </h6>
-                           <h5>여기에 이름</h5>
-                           <h5>여기에 픽</h5>
-                          </div>
-                          </div>
-                        </div>
+        </div>
       </div>
 
+      <div class="card">
+          <div class="card text-center" >
+            <div class="card-body">
+              <h5 class="card-title" style="font-weight: bold;">piku🥇1등🥇</h5><hr>
+              <h6 class="card-subtitle mb-2 text-muted">
+                <img src = "../img/w05.jpg"   style="width: 180px; height: 180px;">
+        </h6>
+        <h5 >에스파 카리나</h5>
+        <h5 >24.02.17기준</h5>
+            </div>
+            </div>
+          </div>
+
+          <div class="card">
+              <div class="card text-center" >
+                <div class="card-body">
+                  <h5 class="card-title" style="font-weight: bold;">supercup 🥇1등🥇</h5><hr>
+                  <h6 class="card-subtitle mb-2 text-muted">
+                    <img src = "../img/w05.jpg"  style="width: 180px; height: 180px;">
+                  </h6>
+                  <h5 >에스파 카리나</h5>
+                  <h5 >24.02.17기준</h5>
+                </div>
+                </div>
+              </div>
+
+    </div>
+
+
   
-    
-  </div>
+</div>
+
   
  
 </body>
 <script>
+var winnerImage = localStorage.getItem('winnerImage');
 
+
+// 가져온 이미지를 화면에 표시
+document.getElementById('winnerImage').src = winnerImage;
 </script>
 </html>
 

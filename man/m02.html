@@ -3,12 +3,12 @@
 <head>
   <title>남자 아이돌 결승</title>
   <meta charset="utf-8">
-  <link rel = "stylesheet" href="../css/round.css">
+  <link rel="stylesheet" href="../css/round.css">
 </head>
 <body>
   <div style="text-align: center;">
     <div class="title-container">
-      <h1 onclick = "location.href='../index.html';"><span>남자 아이돌 결승</span></h1>
+      <h1 onclick="location.href='../index.html';"><span>남자 아이돌 결승</span></h1>
       <p id="round"></p>
       <p id="cal"></p>
     </div>
@@ -16,15 +16,16 @@
     <!-- 이미지 클릭 시 효과음 재생 -->
     <img id="image1" onclick="change(0); play()">
     <img id="image2" onclick="change(1); play()">
-    <audio id='audio_play' preload="auto" src='../audio/00.mp3'></audio>
+    <audio id="audio_play" preload="auto" src="../audio/00.mp3"></audio>
 
-    <!--우승자 보여줄 때-->
+    <!-- 우승자 보여줄 때 -->
     <div class="winner-container" id="winnerContainer">
       <p class="winner-text">👑당신의 이상형👑</p>
       <img id="winnerImage">
+      
       <br>
-      <button class = "btn" id="btn1" onclick = "location.href='../index.html';">처음으로</button>
-      <button class = "btn" id="btn2" onclick = "location.href='manrank.html';">랭킹보기</button>
+      <button class="btn" id="btn1" onclick="location.href='../index.html';">처음으로</button>
+      <button class="btn" id="btn2" onclick="location.href='manrank.html';">랭킹보기</button>
     </div>
   </div>
 
@@ -37,7 +38,7 @@
     var currentMatch = 0; // 현재 진행 중인 경기
     var sImages = []; // 선택한 이미지 저장 배열
     var winnerImage = "우승자";
-   
+    var secondImage = "";
 
     function play() {
       var audio = document.getElementById('audio_play');
@@ -56,7 +57,7 @@
       images.push(fileName);
     }
 
-    images.sort(function(a, b) {
+    images.sort(function (a, b) {
       return 0.5 - Math.random();
     });
 
@@ -84,14 +85,17 @@
             // 우승자가 결정됨
             winnerImage = sImages[0];
 
+            // 로컬 스토리지에 우승자 이미지 저장
+            localStorage.setItem('winnerImage', winnerImage);
+            
+            
             document.getElementById('cal').innerHTML = "";
             document.getElementById('winnerImage').src = winnerImage;
             document.getElementById('winnerContainer').style.display = 'block';
             // 이미지 요소를 숨김
             document.getElementById('image1').style.display = 'none';
             document.getElementById('image2').style.display = 'none';
-            document.getElementById('btn1').style.display = 'none';
-            document.getElementById('btn2').style.display = 'none';
+
           } else {
             showImg(currentMatch);
           }
