@@ -1,5 +1,5 @@
 # 이상형 월드컵 
-자바스크립트를 이용한 이상형 월드컵 <br>
+자바스크립트를 이용한 이상형 월드컵 https://kimnambin.github.io/IdolWorldCup/<br>
 
 
 https://github.com/kimnambin/IdolWorldCup/assets/127464935/66419b3b-e3ad-4fc2-ba66-a6e19b1bd006
